@@ -1,0 +1,6 @@
+while [ $# -gt 0 ]; do
+	file=$1
+	newfile=`echo "$file" | sed 's/\.\w*$/.ico/'`
+	/usr/bin/convert "$file" "$newfile"
+	shift
+done

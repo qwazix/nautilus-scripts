@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#####################################
+# DigiScrap Nautilus Script
+# Batch converts images to JPG
+#
+# More info at...
+# mandytonks.net/digiartgallery/
+#
+# Absolutely no guarantees, warranties
+# or any other sort of -ies provided
+# Use at your own risk.
+#
+# Uses imagemagick.
+#####################################
+
+while [ $# -gt 0 ]; do
+	file=$1
+	newfile=`echo "$file" | sed 's/\.\w*$/.jpg/'`
+	/usr/bin/convert -density 600  -quality 97 "$file" jpeg:"$newfile"
+	/usr/bin/mogrify -resize 50% "$newfile"
+	shift
+done

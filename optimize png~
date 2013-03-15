@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+    file=$1
+    newfile=`echo "$file" | sed 's/\.png$//'`
+    echo $newfile
+    pngnq -n 256 $file && pngcrush $newfile-nq8.png $newfile-optimized.png
+    rm $newfile-nq8.png
+    shift
+done
