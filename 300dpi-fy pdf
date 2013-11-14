@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+	file=$1
+	newfile=`echo "$file" | sed 's/\.pdf$/-300dpi.pdf/'`
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$newfile" "$file"
+	shift
+done

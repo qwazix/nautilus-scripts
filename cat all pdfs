@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#####################################
+
+pdftk "$@" cat output _all_cat_.pdf

@@ -1,0 +1,11 @@
+#!/bin/sh
+# usage: make-pdf-full-screen.sh file.pdf
+#   The file will be modified in place so that it opens full screen.
+#   The current approach is naive... it assumes no Initial View has been defined.
+# by Mark Stosberg
+perl -pi -e 's? /Type /Catalog? /Type /Catalog 
+/PageMode/FullScreen?' $1
+
+
+#
+#
