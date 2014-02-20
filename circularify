@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#####################################
+# DigiScrap Nautilus Script
+# Batch converts images to JPG
+#
+# More info at...
+# mandytonks.net/digiartgallery/
+#
+# Absolutely no guarantees, warranties
+# or any other sort of -ies provided
+# Use at your own risk.
+#
+# Uses imagemagick.
+#####################################
+
+while [ $# -gt 0 ]; do
+	file=$1
+	newfile=`echo "$file" | sed 's/\.\w*$/.png/'`
+        convert "$file" -resize 200x200^ -gravity Center -crop 200x200+0+0 +repage \( +clone -threshold -1 -negate -fill white -draw "circle 100,100 100,0" \) -alpha off -compose copy_opacity -composite "$newfile"
+	shift
+done
