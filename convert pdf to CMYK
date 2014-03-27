@@ -3,6 +3,6 @@
 while [ $# -gt 0 ]; do
 	file=$1
 	newfile=`echo "$file" | sed 's/\.pdf$/-cmyk.pdf/'`
-	gs -o "$newfile" -sDEVICE=pdfwrite -dUseCIEColor -sProcessClolorModel=DeviceCMYK -sColorConversionStrategy=CMYK -sColorConversionStrategyForImages=CMYK "$file"
+	gs -o "$newfile" -sDEVICE=pdfwrite -sProcessColorModel=DeviceCMYK -sColorConversionStrategy=CMYK -sColorConversionStrategyForImages=CMYK "$file"
 	shift
 done
