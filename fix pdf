@@ -1,3 +1,4 @@
 #!/bin/bash
-sed -i s/Courier#20New/Ubuntu#20Mono/g $@
-sed -i s/Arial/Liberation#20Sans/g $@
+sed -i s/Courier#20New/Ubuntu#20Mono/g "$@"
+sed -i s/Arial/Liberation#20Sans/g "$@"
+sed -i s/ArialMT/Liberation#20Sans/g "$@"
