@@ -1,0 +1,5 @@
+#!/bin/bash
+
+my_variable=$(zenity --entry --text Name: --title 'New Folder')
+
+mkdir "`date +%Y-%m-%d` $my_variable"
