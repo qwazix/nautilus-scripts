@@ -1,9 +1,0 @@
-#!/bin/bash
-filesall=""
-while [ $# -gt 0 ]
-	do
-		files=`echo "$1" | sed 's/ /\?/g'`
-		filesall="$files $filesall"
-		shift
-	done
-convert $filesall $filesall.jpg
