@@ -2,8 +2,8 @@
 
 while [ $# -gt 0 ]; do
 	file=$(basename "$1")
-	scp "$1" qwazix2@oob-server4.info:/home/qwazix2/public_html/shared/
-	url="http://play.qwazix.com/shared/$file"
+	scp "$1" qwazix@c.d-e.gr:/var/www/qwazix.com/public_html/shared/
+	url="http://qwazix.com/shared/$file"
 	echo "$url" | xclip -selection clipboard
 	shift
 done
