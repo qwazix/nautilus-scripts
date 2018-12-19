@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xmprate $@ -r 1

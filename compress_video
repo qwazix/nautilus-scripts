@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir -p small
+while [ $# -gt 0 ]; do
+	file=$1
+    ffmpeg -i $file -crf 20 small/$file
+	shift
+done
