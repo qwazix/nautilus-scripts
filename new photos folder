@@ -1,9 +1,16 @@
 #!/bin/bash
 
+# Script that reads the date the last selected photo was taken,
+# asks the user for a folder name and creates a folder named 
+
+#     YYYY-MM-DD folder name
+
+# and moves all the photos there
+
 ROOTDIR=/media/qwazix/backup1/photos/
 
 DATE=`exiftool ${@: -1} | grep -m 1 Create\ Date | sed 's/Create Date[ ]\+: \(.*\) .*/\1/g' | sed s/:/-/g | tr -d '\n'`
-DIRNAME=`zenity --entry --text="Folder name" --entry-text="$DATE "`
-#DIRNAMEFULL="$DATE $DIRNAME"
+DIRNAME=`zenity --entry --text="Folder name" #--entry-text="$DATE "`
+DIRNAMEFULL="$DATE $DIRNAME"
 mkdir "$ROOTDIR/$DIRNAMEFULL"
 mv $@ "$ROOTDIR/$DIRNAMEFULL"
