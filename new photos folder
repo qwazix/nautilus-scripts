@@ -9,8 +9,9 @@
 
 ROOTDIR=/media/qwazix/backup1/photos/
 
-DATE=`exiftool ${@: -1} | grep -m 1 Create\ Date | sed 's/Create Date[ ]\+: \(.*\) .*/\1/g' | sed s/:/-/g | tr -d '\n'`
+DATE=`exiftool ${@: -1} | grep -m 1 Create\ Date | sed 's/Create Date[ ]\+: [0-9]\{4\}:\(.*\) .*/\1/g' | sed s/:/-/g | tr -d '\n'`
 DIRNAME=`zenity --entry --text="Folder name" #--entry-text="$DATE "`
-DIRNAMEFULL="$DATE $DIRNAME"
+DIRNAMEFULL="`date +%Y`/$DATE $DIRNAME"
 mkdir "$ROOTDIR/$DIRNAMEFULL"
 mv $@ "$ROOTDIR/$DIRNAMEFULL"
+nautilus "$ROOTDIR/$DIRNAMEFULL"
