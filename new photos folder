@@ -7,11 +7,12 @@
 
 # and moves all the photos there
 
-ROOTDIR=/media/qwazix/backup1/photos/
+ROOTDIR=/mnt/e4ab62c5-8706-467f-a8cc-85f0e590fcb0/photos/
 
 DATE=`exiftool ${@: -1} | grep -m 1 Create\ Date | sed 's/Create Date[ ]\+: [0-9]\{4\}:\(.*\) .*/\1/g' | sed s/:/-/g | tr -d '\n'`
+YEAR=`exiftool ${@: -1} | grep -m 1 Create\ Date | sed 's/Create Date[ ]\+: \([0-9]\{4\}\):.* .*/\1/g' | sed s/:/-/g | tr -d '\n'`
 DIRNAME=`zenity --entry --text="Folder name" #--entry-text="$DATE "`
-DIRNAMEFULL="`date +%Y`/$DATE $DIRNAME"
+DIRNAMEFULL="$YEAR/$DATE $DIRNAME"
 mkdir "$ROOTDIR/$DIRNAMEFULL"
 mv $@ "$ROOTDIR/$DIRNAMEFULL"
 nautilus "$ROOTDIR/$DIRNAMEFULL"
