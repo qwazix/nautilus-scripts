@@ -2,4 +2,4 @@
 
 #####################################
 
-pdftk "$@" cat output _all_cat_.pdf
+pdfunite "$@" _all_cat_.pdf
